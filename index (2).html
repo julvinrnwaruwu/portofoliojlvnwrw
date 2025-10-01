@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portofolio Julvin Waruwu</title>
+
+    <style>
+        /* Font & base color palette inspired by coquette aesthetic */
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;600&display=swap');
+
+        body {
+            background: #fff8f2;
+            font-family: 'Poppins', sans-serif;
+            color: #5a4a4a;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Parisienne', cursive;
+            color: #d77fa1;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #d77fa1;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem 0;
+            position: relative;
+        }
+
+        /* Animated ribbons - top left and bottom right corners */
+        .ribbon {
+            width: 120px;
+            height: 30px;
+            background: linear-gradient(45deg, #d77fa1, #f7a6c1);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            animation: slideRibbon 4s ease-in-out infinite alternate;
+            border-radius: 5px 0 5px 0;
+            box-shadow: 0 2px 6px rgba(215, 127, 161, 0.7);
+            user-select: none;
+        }
+
+        .ribbon.top-left {
+            top: 10px;
+            left: 10px;
+            animation-delay: 0s;
+        }
+
+        .ribbon.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            animation-delay: 2s;
+        }
+
+        @keyframes slideRibbon {
+            0% {
+                transform: translateX(0) rotate(-5deg);
+            }
+
+            100% {
+                transform: translateX(15px) rotate(5deg);
+            }
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto 5rem;
+            background: #fff0f6;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(215, 127, 161, 0.3);
+            padding: 2rem 3rem;
+        }
+
+        /* Navigation buttons to toggle sections */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        button.section-btn {
+            background: #f9d5e5;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #843b62;
+            box-shadow: 0 2px 5px rgba(215, 127, 161, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        button.section-btn:hover,
+        button.section-btn.active {
+            background: #d77fa1;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(215, 127, 161, 0.8);
+        }
+
+        /* Section styles */
+        section {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Data Pribadi Images Grid */
+        .personal-images,
+        .hobby-images {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .personal-images img,
+        .hobby-images img {
+            width: 150px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 3px 7px rgba(215, 127, 161, 0.3);
+            border: 3px solid #f7a6c1;
+        }
+
+        /* Content styling */
+        .content-item {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Social media link styles */
+        .social-links {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            background: #d77fa1;
+            color: white;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 6px rgba(215, 127, 161, 0.6);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #f7a6c1;
+            color: #843b62;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            main {
+                padding: 1rem 1.5rem;
+                margin: 2rem auto 3rem;
+            }
+
+            .personal-images img,
+            .hobby-images img {
+                width: 100px;
+                height: 75px;
+            }
+
+            button.section-btn {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Get to Know Me: Jujuw 🎀🌺</h1>
+        <div class="ribbon top-left">Welcome</div>
+        <div class="ribbon bottom-right">Enjoy!</div>
+    </header>
+
+    <main>
+        <nav>
+            <button class="section-btn active" data-section="data-pribadi">Data Pribadi</button>
+            <button class="section-btn" data-section="riwayat">Riwayat Pendidikan & Prestasi</button>
+            <button class="section-btn" data-section="hobi">Hobi</button>
+            <button class="section-btn" data-section="skill">Skill</button>
+        </nav>
+
+        <section id="data-pribadi" class="active">
+            <h2>Data Pribadi</h2>
+            <div class="content-item">
+                <p><strong>Nama:</strong> Julvin Rut Nasrani Waruwu</p>
+                <p><strong>NIM:</strong> 4252250008</p>
+                <p><strong>Tempat & Tanggal lahir:</strong> Sisarahili, 14 Juli 2007</p>
+                <p><strong>Agama:</strong> Kristen Protestan</p>
+                <p><strong>Email:</strong> julvinrnwaruwu@gmail.com</p>
+                <p><strong>Status:</strong> Mahasiswa</p>
+                  <p><strong>Prodi:</strong> S1 - Ilmu Komputer</p>
+                <p><strong>Alamat:</strong> JL. Cendrawasih II GG Murai IV, Medan, Sumatera Utara</p>
+            </div>
+            <div class="personal-images">
+                <img src="fotosma.jpg" alt="Foto 1" />
+                <img src="fotosaya.jpg" alt="Foto 2" />
+                <img src="selfie.jpg" alt="Foto 3" />
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/jlvnnw" target="_blank" aria-label="Instagram" rel="noopener noreferrer">📷</a>
+                <a href="https://wa.me/6281274330984" target="_blank" aria-label="WhatsApp" rel="noopener noreferrer">📞</a>
+            </div>
+        </section>
+
+        <section id="riwayat">
+            <h2>Riwayat Pendidikan & Prestasi</h2>
+            <div class="content-item">
+                <h3>Pendidikan</h3>
+                <ul>
+                    <li>SD ADVENT CIMINDI BANDUNG (2013 - 2019)</li>
+                    <li>UPT SPF SMP NEGERI 5 PERCUT SEI TUAN (2019 - 2022)</li>
+                    <li>SMA NEGERI 11 MEDAN (2022 - 2025)</li>
+                    <li>Universitas Negeri Medan, Ilmu Komputer (2025 - Sekarang)</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <h3>Prestasi</h3>
+                <ul>
+                    <li>Rangking 1 di dalam kelas selama 3 tahun di SMA Negeri 11 Medan </li>
+                    <li>Menjadi perwakilan sekolah sebagai Duta Baju adat selama 2 tahun </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="hobi">
+            <h2>Hobi</h2>
+            <div class="content-item">
+                <ul>
+                    <li>Menari</li>
+                    <li>Editing foto</li>
+                    <li>Menonton film</li>
+                </ul>
+            </div>
+            <div class="hobby-images">
+                <img src="RIZ07533.jpg" alt="Menari" />
+                <img src="RIZ07525.JPG" alt="Menari" />
+                <img src="RIZ07515.JPG" alt="Menari" />
+                
+            </div>
+        </section>
+
+        <section id="skill">
+            <h2>Skill</h2>
+            <div class="content-item">
+                <ul>
+                    <li>Kemampuan Teknis: Microsoft Office (Word, Presentation, Excel), Desain Grafis dengan Canva </li>
+                    <li>Kemampuan Non-teknis: Komunikasi, Bertanggung Jawab, Kerjasama Tim</li>
+                    <li>Bahasa:  Bahasa Indonesia, Bahasa Inggris (Conversation)</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Toggle sections when nav buttons are clicked
+        const buttons = document.querySelectorAll('.section-btn');
+        const sections = document.querySelectorAll('section');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.section).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
